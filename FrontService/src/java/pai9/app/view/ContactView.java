@@ -17,6 +17,11 @@ public class ContactView implements IView {
     @Override
     public String renderView(UriInfo context) {
         String body = "Some contact information";
+        ViewHelper vh = new ViewHelper();
+        String time = vh.getTime();
+        String items = vh.getItems();
+        body +="<br>current time from time server: "+time;
+        body += "<br>items from db server: "+items;
         return ViewHelper.wrapContent(body);
     }
 
