@@ -7,6 +7,8 @@ package pai9.app.view;
 
 import javax.ws.rs.core.UriInfo;
 import pai9.app.core.IView;
+import pai9.app.view.subview.DBView;
+import pai9.app.view.subview.TimeView;
 
 /**
  *
@@ -16,12 +18,9 @@ public class ContactView implements IView {
 
     @Override
     public String renderView(UriInfo context) {
-        String body = "Some contact information";
-        ViewHelper vh = new ViewHelper();
-        String time = vh.getTime();
-        String items = vh.getItems();
-        body +="<br>current time from time server: "+time;
-        body += "<br>items from db server: "+items;
+        String body = "Some contact information<hr/>";
+        body += new TimeView().renderView(context);
+        body += new DBView().renderView(context);
         return ViewHelper.wrapContent(body);
     }
 

@@ -12,6 +12,9 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.core.HttpHeaders;
+import pai10.common.AuthFilter;
+import pai10.common.core.FilterManager;
 import pai9.app.MainDispatcher;
 
 /**
@@ -24,6 +27,10 @@ public class TimeFacade {
 
     @Context
     private UriInfo context;
+    @Context
+    private HttpHeaders headers;
+    
+    private final FilterManager fm;
 
     /**
      * Creates a new instance of FrontController
@@ -31,12 +38,20 @@ public class TimeFacade {
     public TimeFacade() {
         System.out.println("dzialasdsdsa");
         md = new MainDispatcher();
+        fm = new FilterManager();
+        fm.add(new AuthFilter("admin:admin"));
     }
     private MainDispatcher md;
 
     @GET
     @Path("/current")
     public String process() {
-        return new SimpleDateFormat().format(new Date());
+
+        if(fm.test(context, headers))
+        {
+            return new SimpleDateFormat().format(new Date());
+        }
+        return "<b>Cannot Access</b>";
+        
     }
 }

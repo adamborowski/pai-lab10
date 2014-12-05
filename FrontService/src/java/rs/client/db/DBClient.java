@@ -22,6 +22,7 @@ import javax.ws.rs.client.WebTarget;
  * @author adam
  */
 public class DBClient {
+
     private WebTarget webTarget;
     private Client client;
     private static final String BASE_URI = "http://localhost:8080/DBService/resources";
@@ -34,11 +35,11 @@ public class DBClient {
     public String process() throws ClientErrorException {
         WebTarget resource = webTarget;
         resource = resource.path("items");
-        return resource.request().get(String.class);
+        return resource.request().header("Authorization", "Basic YWRtaW46YWRtaW4=").get(String.class);
     }
 
     public void close() {
         client.close();
     }
-    
+
 }
