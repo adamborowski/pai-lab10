@@ -5,6 +5,8 @@
  */
 package pai9.app.view;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import rs.client.db.DBClient;
 import rs.client.time.TimeClient;
 
@@ -25,8 +27,13 @@ public class ViewHelper {
         return sb.toString();
     }
 
-    public static String wrapContent(String content) {
-        return "<html><body><h2>Lab 9 & 10</h2>" + getNav() + "<hr/>" + content + "</body></html>";
+    public static String wrapContent(String content, HttpServletRequest request) {
+        String userInfo = "Login is recommended";
+        final Object attribute = request.getSession().getAttribute("user");
+        if (attribute != null) {
+            userInfo = "Logged as: " + attribute;
+        }
+        return "<html><body><h2>Lab 9 & 10</h2>" + userInfo + "<br/>" + getNav() + "<hr/>" + content + "</body></html>";
     }
 
     public String getTime() {
@@ -37,5 +44,10 @@ public class ViewHelper {
     public String getItems() {
         DBClient db = new DBClient();
         return db.process();
+    }
+
+    public boolean isUserLogged(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        return session.getAttribute("user") != null;
     }
 }

@@ -5,6 +5,7 @@
  */
 package pai9.app.view;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.UriInfo;
 import pai9.app.core.IView;
 
@@ -15,9 +16,9 @@ import pai9.app.core.IView;
 public class ErrorView implements IView{
 
     @Override
-    public String renderView(UriInfo context) {
+    public String renderView(UriInfo context, HttpServletRequest request) {
         String body="Error 404";
-        return ViewHelper.wrapContent(body);
+        return ViewHelper.wrapContent(body, request);
     }
     
 }

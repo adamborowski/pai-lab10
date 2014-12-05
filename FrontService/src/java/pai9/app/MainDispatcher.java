@@ -5,6 +5,7 @@
  */
 package pai9.app;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.UriInfo;
 import pai9.app.core.IView;
 import pai9.app.core.IViewDispatcher;
@@ -20,7 +21,7 @@ import pai9.app.view.MainView;
 public class MainDispatcher implements IViewDispatcher{
 
     @Override
-    public IView delegate(UriInfo context) {
+    public IView delegate(UriInfo context, HttpServletRequest request) {
         final String cmd = context.getPathParameters().get("cmd").get(0).toString().toLowerCase();
         
         if(cmd.equals("main")){

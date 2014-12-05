@@ -5,6 +5,7 @@
  */
 package pai9.app.view;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.UriInfo;
 import pai9.app.core.IView;
 
@@ -15,9 +16,9 @@ import pai9.app.core.IView;
 public class FormView implements IView {
 
     @Override
-    public String renderView(UriInfo context) {
-        String body = "<form action=''><input value='login'/><input type='password' value='haslo'/></form>";
-        return ViewHelper.wrapContent(body);
+    public String renderView(UriInfo context, HttpServletRequest request) {
+        String body = "<h1>Please login: </h1><form method='post' action='/FrontService/resources/login'><input value='login' name='login'/><input name='password' type='password' value='haslo'/><input type='submit' value='ok'/></form>";
+        return ViewHelper.wrapContent(body, request);
     }
 
 }

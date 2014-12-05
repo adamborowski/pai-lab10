@@ -5,6 +5,7 @@
  */
 package pai9.app.view.subview;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.UriInfo;
 import pai9.app.core.IView;
 import pai9.app.view.ViewHelper;
@@ -16,7 +17,7 @@ import pai9.app.view.ViewHelper;
 public class TimeView implements IView {
 
     @Override
-    public String renderView(UriInfo context) {
+    public String renderView(UriInfo context, HttpServletRequest request) {
         return "<div style='padding:10px; background: #ac3d4f; display: inline-block'>Czas z TimeServer: "+new ViewHelper().getTime()+"</div>";
     }
     

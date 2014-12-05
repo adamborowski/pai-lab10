@@ -5,6 +5,7 @@
  */
 package pai9.app.core;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.UriInfo;
 
 /**
@@ -13,5 +14,5 @@ import javax.ws.rs.core.UriInfo;
  */
 public interface IViewDispatcher {
 
-    IView delegate(UriInfo context);
+    IView delegate(UriInfo context, HttpServletRequest request);
 }

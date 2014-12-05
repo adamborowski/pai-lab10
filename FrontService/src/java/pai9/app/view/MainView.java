@@ -5,6 +5,7 @@
  */
 package pai9.app.view;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.UriInfo;
 import pai9.app.core.IView;
 
@@ -12,12 +13,12 @@ import pai9.app.core.IView;
  *
  * @author adam
  */
-public class MainView implements IView{
+public class MainView implements IView {
 
     @Override
-    public String renderView(UriInfo context) {
-        String body="This Is Main Page";
-        return ViewHelper.wrapContent(body);
+    public String renderView(UriInfo context, HttpServletRequest request) {
+        String body = "This Is Main Page";
+        return ViewHelper.wrapContent(body, request);
     }
-    
+
 }
