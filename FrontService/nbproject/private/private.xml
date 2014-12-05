@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/home/adam/projekty/pai-lab10/FrontService/src/java/pai9/app/view/FormView.java</file>
+            <file>file:/home/adam/projekty/pai-lab10/FrontService/src/java/pai9/app/view/ErrorView.java</file>
+            <file>file:/home/adam/projekty/pai-lab10/FrontService/src/java/pai9/service/FrontController.java</file>
+            <file>file:/home/adam/projekty/pai-lab10/FrontService/src/java/pai9/app/view/subview/DBView.java</file>
+            <file>file:/home/adam/projekty/pai-lab10/FrontService/src/java/pai9/app/view/ContactView.java</file>
+            <file>file:/home/adam/projekty/pai-lab10/FrontService/src/java/rs/client/db/DBClient.java</file>
+            <file>file:/home/adam/projekty/pai-lab10/FrontService/src/java/pai9/app/view/subview/TimeView.java</file>
+            <file>file:/home/adam/projekty/pai-lab10/FrontService/src/java/pai9/app/view/ViewHelper.java</file>
+            <file>file:/home/adam/projekty/pai-lab10/FrontService/src/java/rs/client/time/TimeClient.java</file>
+        </group>
     </open-files>
 </project-private>
